@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+		<title>六一儿童节</title>
+		<link rel="shortcut icon" href="uplus.ico">
+		<link rel="icon" href="uplus.ico">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" id="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1,user-scalable=no,initial-scale=1">
+		<meta content="telephone=no" name="format-detection" />
+		<link rel="stylesheet" type="text/css" href="css/style.css?time=22222"/>
+    </head>
+	<body>
+		<div class="title"><img src="img/title.png"></div>
+		<div class="info" style="margin-top: 1.6875em;">
+			<div class="uinfo">
+				<img src="img/gz.png">
+				<div style="text-align: left;padding:0 1em;position: relative;top: -1.5em;">
+					<span class="zt11">活动时间：即日起-6月3日12：00</span><br>
+					<span class="zt12">每个人初始年龄为100岁，每收到一个儿童节礼物减相应年龄</span><br>
+					<span class="zt11">1个<img style="width: 1.875em;vertical-align: middle;" src="img/gift_small.png?t">=1岁&nbsp;&nbsp;&nbsp;&nbsp;1个<img style="width: 1.875em;vertical-align: middle;" src="img/gift_big.png">=40岁</span><br>
+					<span class="zt12">谁的年龄会最小呢？最小能负到几岁呢？我们好期待啊！</span><br>
+				</div>
+				<div style="text-align: left;padding:0 1em 1em;position: relative;top: -0.5em;">
+					<span class="zt13">实名认证秀主收礼活动成绩翻倍(与所获钻石无关)</span><br>
+				</div>
+			</div>
+		</div>
+		<div class="info" style="margin-top: 3.25em;">
+			<div id="my_uinfo" class="uinfo ">
+				<img src="img/wdcj.png">
+				<table class="nv">
+					<tr>
+						<td><img id="my_avatar" class="avatarmi" src="http://ws.cdndown.youja.cn/get/404/small.png"></td>
+						<td rowspan="2">
+							<span class="zt12">现在年龄</span>
+							<span id="curr_age" class="zt11" style="padding:0 1em;">100岁</span>
+							<!--<span class="zt12">第1名</span>-->
+							<div>
+								<span class="zt12">收到</span>
+								<img style="width: 1.875em;vertical-align: middle;" src="img/gift_small.png?d">
+								<span class="zt11" id="gift_small">0个</span>
+								<img class="sb pos" src="img/sb.png">
+							</div>
+							<div>
+								<span class="zt12">收到</span>
+								<img style="width: 1.875em;vertical-align: middle;" src="img/gift_big.png">
+								<span class="zt11" id="gift_big">0个</span>
+							</div>
+						</td>
+
+					</tr>
+					<tr>
+						<td><span id="nick_name" class="zt2"></span><br>
+						<img id="user_rz" class="rz" src="img/rz.png">
+						</td>
+
+					</tr>
+				</table>
+
+			</div>
+		</div>
+
+		<div class="info" style="margin-top: 3.25em;">
+			<div class="uinfo">
+				<img src="img/phb.png">
+				<div class="phb_123">
+				</div>
+				<div id="phb">
+				</div>
+			</div>
+		</div>
+		<div class="info" style="margin-top: 3.25em;">
+			<div class="uinfo">
+				<img src="img/jl.png">
+
+				<table class="tb_js">
+					<tr>
+						<td></td>
+						<td>TOP1</td>
+						<td>500万U币</td>
+						<td style="color: #59d7b8">活动徽章</td>
+					</tr>
+					<tr>
+						<td><img src="img/zny.png" style="width:2.875em; "></td>
+						<td style="color: #62c2d8">TOP2</td>
+						<td style="color: #62c2d8">500万U币</td>
+						<td style="color: #52c9ab"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td style="color: #4fa8bc">TOP3</td>
+						<td style="color: #4fa8bc">300万U币</td>
+						<td style="color: #309d82"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="Footer">
+			<!-- <div class="text">最终解释权归友十（上海）网络科技有限公司所有</div> -->
+			<div class="text">本活动奖品与苹果公司无关</br>活动解释权归上海掌颐网络科技有限公司所有</div>
+		</div>
+    </body>
+</html>
+<script src="http://app.youja.cn/public/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://app.youja.cn/public/uplus/js/native-protol.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/index.js?time=22222" type="text/javascript" charset="utf-8"></script>
+<script>
+	var uid=getQueryString("uid");
+	if(nativeProtol.getPhoneType()=="others") {
+		init();
+	}else{
+		if(uid==null){
+			nativeProtol.getUserInfo(function(){
+				uid = nativeProtol.userId;
+				init();
+			});
+		}else{
+			init();
+		}
+	}
+	function init(){
+		app.getmyinfo(uid,function(status,data){
+			if(status=="success"&&data!=null &&data.ret==0){
+				if(data.myprofile!=null){
+					$("#my_avatar").attr("src",data.myprofile.avatar).click(function(){
+						href_profile(data.myprofile.userid);
+					});
+					$("#curr_age").html(data.myprofile.age);
+					$("#gift_big").html(data.myprofile.recvbig);
+					$("#gift_small").html(data.myprofile.recvsml);
+					$("#nick_name").html(data.myprofile.nickname);
+					if(data.myprofile.auth)$("#my_uinfo").addClass("user_rz");
+					if(data.myprofile.gender==1)$("#my_uinfo").addClass("nan");
+				}
+
+			}
+		});
+		init2();
+	}
+	var str = "win";
+	eval("var " + str);
+	console.log(win);
+	eval(str+"=3");
+	console.info(win);
+	function init2(){
+		app.getrank(function(status,data){
+			if(status=="success"&&data!=null &&data.ret==0){
+				if(data.rank!=null){
+					var html="",html_1="",html_2="",html_3="";
+					for(var i=0;i<data.rank.length;i++){
+						var info=data.rank[i];
+						if(info==null)continue;
+						if(i<3){
+							var hh ="";
+							hh+='<li class="'+(info.auth?"user_rz":"")+'">';
+							hh+='<div class="av_'+(i+1)+'">';
+							hh+='<img class="jb'+(i+1)+'" src="img/'+(i+1)+'.png">';
+							hh+='<img class="avatarb'+(i+1)+'" src="'+info.avatar+'" onclick="href_profile('+info.userid+')">';
+							hh+='</div>';
+							hh+='<div><span class="zt16" style="'+(info.gender==1?"color:#bf5319":"")+'">'+info.nickname+'</span><br><img  class="rz" src="img/rz.png"></div>';
+							hh+='<div><span class="zt12">'+info.age+'岁</span></div>';
+							hh+='</li>';
+							eval("html_"+(i+1)+"='"+hh+"'");
+						}else{
+							html+='<li class="'+(info.auth?"user_rz":"")+'">';
+							html+='<div>';
+							html+='<img src="img/'+(i+1)+'.png">';
+							html+='<img src="'+info.avatar+'" class="avatar" style="margin-left:0.3em;" onclick="href_profile('+info.userid+')">';
+							html+='<div>';
+							html+='<span class="zt16 nick_name new_nick_name" style="'+(info.gender==1?"color:#bf5319":"")+'">'+info.nickname+'</span>';
+							html+='<img style="margin-left: 0.2em" src="img/rz.png" class="rz rzb">';
+							html+='</div>';
+							html+='<span class="zt12">'+info.age+'岁</span>';
+							html+='</div>';
+							html+='</li>';
+						}
+					}
+					$(".phb_123").html(html_2+html_1+html_3);
+					$("#phb").html(html);
+				}
+			}
+		})
+	}
+	function detail(user_id){
+		if(user_id!=null)uid=user_id;
+		window.location.href="detail.html?uid="+uid;
+	}
+	function href_profile(userid){
+		window.location.href="./?yjJumpClientPage=profile&uid="+userid;
+	}
+</script>

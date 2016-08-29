@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+		<title>5.20</title>
+		<link rel="shortcut icon" href="uplus.ico">
+		<link rel="icon" href="uplus.ico">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" id="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1,user-scalable=no,initial-scale=1">
+		<meta content="telephone=no" name="format-detection" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+    </head>
+	<body>
+		<div class="title"><img src="img/title.png"></div>
+		<div class="info" style="margin-top: 1.6875em;">
+			<div class="uinfo">
+				<img src="img/xx.png">
+				<div id="xx">
+					<div class="xx_tit">
+						<div><img src="img/ns.png"><span class="zt9" style="margin-left: 0.5em;">女神</span></div><div><img src="img/sh.png"><span class="zt9" style="margin-left: 0.5em;">专属守护（TOP1）</span></div>
+					</div>
+					<li>
+						<div>
+							<img id="my_avatar" class="avatar" src="http://ws.cdndown.youja.cn/get/404/small.png">
+							<div style="padding-left: 0.3em;">
+								<div><span id="my_nick_name" class="zt6 nick_name"></span><img id="my_rz" style="display: none;margin-left: 0.2em" class="rz" src="img/rz.png"></div>
+								<div><span class="zt7">女神值</span><span id="my_nsz" class="zt7">0</span></div>
+							</div>
+						</div><div>
+							<img id="my_sh1_avatar" class="avatar" src="http://ws.cdndown.youja.cn/get/404/small.png">
+							<div style="padding-left: 0.3em;">
+								<div><span id="my_sh1_name" class="zt6 nick_name"></span><img id="ny_sh1_rz" style="display: none;margin-left: 0.2em" class="rz" src="img/rz.png"></div>
+								<div><span class="zt10">守护值</span><span id="my_sh1_shz" class="zt10">0</span></div>
+							</div>
+						</div>
+					</li>
+					<div class="xx_tit" style="padding-top:0.875em;">
+						<div><img src="img/hh.png"><span class="zt9" style="margin-left: 0.5em;">护花使者（TOP2-4）</span></div>
+						<div></div>
+					</div>
+					<li class="ae_24">
+						<!--<div>
+							<img class="avatar" src="http://resource.youja.cn/resource_type/101/resource_id/424767261">
+							<div>
+								<div><span class="zt6">哈哈哈</span><img class="rz" src="img/rz.png"></div>
+								<div><span class="zt10">守护值</span><span class="zt10">2342342</span></div>
+							</div>
+						</div>
+-->
+					</li>
+
+				</div>
+			</div>
+		</div>
+    </body>
+</html>
+<script src="http://app.youja.cn/public/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://app.youja.cn/public/uplus/js/native-protol.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	var uid=getQueryString("uid");
+	init();
+	function init(){
+		app.detail_520(uid,function(status,data) {
+			if(status=="success"&&data!=null &&data.ret==0){
+				if(data.topprofile!=null){
+					$("#my_avatar").attr("src",data.topprofile.nymphAvatar);
+					$("#my_nick_name").html(data.topprofile.nymphNickName);
+					$("#my_nsz").html(data.topprofile.nymphValue);
+					if(data.topprofile.nymphAuth)$("#my_rz").show();
+				}
+				if(data.rank!=null){
+					var html="";
+					for(var i=0;i<data.rank.length;i++){
+						var info=data.rank[i];
+						if(info==null)continue;
+						if(i==0){
+							$("#my_sh1_avatar").attr("src",info.guardAvatar);
+							$("#my_sh1_name").html(info.guardNickName);
+							$("#my_sh1_shz").html(info.guardValue);
+							if(info.guardAuth)$("#ny_sh1_rz").show();
+						}else{
+							if(i%2!=0){
+								html+='<div style="margin-left: 5%;">';
+							}else{
+								html+='<div>';
+							}
+							html+='<img class="avatar" src="'+info.guardAvatar+'">';
+							html+='<div style="padding-left: 0.5em;">';
+							html+='<div><span class="zt6 nick_name">'+info.guardNickName+'</span>';
+							if(info.guardAuth)html+='<img class="rz" src="img/rz.png" style="margin-left: 0.2em">';
+							html+='</div>';
+							html+='<div><span class="zt10">守护值</span><span class="zt10">'+info.guardValue+'</span></div>';
+							html+='</div>';
+							html+='</div>';
+						}
+					}
+					$(".ae_24").html(html);
+				}
+			}
+		});
+	}
+</script>

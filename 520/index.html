@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+		<title>5.20</title>
+		<link rel="shortcut icon" href="uplus.ico">
+		<link rel="icon" href="uplus.ico">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" id="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1,user-scalable=no,initial-scale=1">
+		<meta content="telephone=no" name="format-detection" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+    </head>
+	<body>
+		<div class="title"><img src="img/title.png"></div>
+		<div class="info">
+			<div class="uinfo">
+				<img src="img/wdcj.png">
+				<table>
+					<tr>
+						<td><img id="my_avatar" class="avatar" src="http://ws.cdndown.youja.cn/get/404/small.png"></td>
+						<td>
+							<span class="zt1">女神值</span><span id="nsz" class="zt1" style="padding:0 0.5em;">0</span><img id="user_sb" class="sb" src="img/sb.png" style="display: none">
+							<div><span class="zt2">最多单人送我喜鹊</span><span id="vsz_gift" class="zt2" style="padding:0 0.5em;">0</span><span class="zt2">个</span></div>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><span id="nick_name" class="zt2"></span><br>
+						<img id="user_rz" class="rz" src="img/rz.png" style="display: none">
+						</td>
+						<td>
+							<span class="zt3">守护值</span><span id="shz" class="zt3" style="padding:0 0.5em;">0</span><br>
+							<span class="zt2">向单人送出喜鹊最高</span><span id="shz_gift" class="zt2" style="padding:0 0.5em;">0</span><span class="zt2">个</span>
+						</td>
+						<td><img onclick="detail()" class="xq" src="img/xq.png"></td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+		<div class="love">
+			<img src="img/line_2_top.png">
+			<div class="content">
+				<img id="sh_best" class="avatar" src="http://ws.cdndown.youja.cn/get/404/small.png">
+				<img class="loveimg" src="img/love.png">
+				<img id="ns_best" class="avatar" src="http://ws.cdndown.youja.cn/get/404/small.png">
+				<span id="sh_best_num" class="zt4">0</span>
+				<img style="position: absolute;right: 5em;top: 0;width: 3em;" src="img/gift_small.png">
+				<div>
+					<img id="sh_best_rz" style="margin-left: 1.84em;visibility: hidden" class="rz" src="img/rz.png">
+					<img id="ns_best_rz" style="margin-left: 4.5em;visibility: hidden" class="rz" src="img/rz.png"></div>
+				<div style="text-align: center"><span class="zt2">数字显示目前喜鹊数最高的专属护花使者和TA的女神</span></div>
+			</div>
+			<img src="img/line_2_bottom.png">
+		</div>
+		<div class="info" style="margin-top: 1.6875em;">
+			<div class="uinfo">
+				<img src="img/gz.png">
+				<div style="text-align: left;padding:0 1em;">
+					<span class="zt1">向TA送出爱的礼物，在这个特殊的日子大声宣布爱</span><br>
+					<span class="zt1">1个<img style="width: 3em;vertical-align: middle;" src="img/gift_big.png">=100个<img style="width: 3em;vertical-align: middle;" src="img/gift_small.png"></span><br>
+					<span class="zt1">向TA送出最多喜鹊，即成为TA的专属护花使者</span><br>
+				</div>
+				<div style="text-align: left;padding:1em;">
+					<span class="zt2">女神值&nbsp;=&nbsp;收到所有喜鹊的总和数</span><br>
+					<span class="zt2">守护值&nbsp;=&nbsp;向单人送出喜鹊的最高数</span><br>
+					<span class="zt5">实名认证秀主收礼活动成绩翻倍(与所获钻石无关)</span><br>
+				</div>
+			</div>
+		</div>
+		<div class="info" style="margin-top: 1.6875em;">
+			<div class="uinfo">
+				<img src="img/phb.png">
+				<div id="phb">
+				</div>
+			</div>
+		</div>
+		<div class="info" style="margin-top: 1.6875em;">
+			<div class="uinfo">
+				<img src="img/jl.png">
+
+				<table style="text-align: left;width: 80%">
+					<tr>
+						<td width="50%" style="text-align: center"><span class="zt4" style="margin-left: 0;">女神值</span></td>
+						<!--<td><span class="zt8">守护值</span></td>-->
+					</tr>
+					<tr>
+						<td style="text-align: center"><span class="zt9">TOP1</span>&nbsp;&nbsp;<span class="zt1">500万U币</span><span class="zt9">及</span><span class="zt1">活动徽章</span></td>
+						<!--<td class="zt9">TOP1&TA的女神各获得</td>-->
+					</tr>
+					<tr>
+						<td style="text-align: center"><span class="zt9">TOP2</span>&nbsp;&nbsp;<span class="zt1">300万U币</span><span class="zt9">及</span><span class="zt1">活动徽章</span></td>
+						<!--<td><span class="zt1">500万U币</span><span class="zt9">及</span><span class="zt1">活动徽章</span></td>-->
+					</tr>
+					<tr>
+						<td style="text-align: center"><span class="zt9">TOP3</span>&nbsp;&nbsp;<span class="zt1">100万U币</span><span class="zt9">及</span><span class="zt1">活动徽章</span></td>
+
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="Footer">
+			<!-- <div class="text">最终解释权归友十（上海）网络科技有限公司所有</div> -->
+			<div class="text">本活动奖品与苹果公司无关</br>活动解释权归上海掌颐网络科技有限公司所有</div>
+		</div>
+    </body>
+</html>
+<script src="http://app.youja.cn/public/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://app.youja.cn/public/uplus/js/native-protol.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	var uid=getQueryString("uid");
+	if(nativeProtol.getPhoneType()=="others") {
+		init();
+	}else{
+		if(uid==null){
+			nativeProtol.getUserInfo(function(){
+				uid = nativeProtol.userId;
+				init();
+			});
+		}else{
+			init();
+		}
+	}
+	function init(){
+		app.activity_520(uid,function(status,data){
+			if(status=="success"&&data!=null &&data.ret==0){
+				if(data.myprofile!=null){
+					$("#my_avatar").attr("src",data.myprofile.nymphAvatar);
+					$("#nsz").html((data.myprofile.nymphAuth?data.myprofile.nymphValue/2:data.myprofile.nymphValue));
+					$("#shz").html(data.myprofile.guardValue);
+					$("#vsz_gift").html(data.myprofile.recvGifts);
+					$("#shz_gift").html(data.myprofile.sendGifts);
+					$("#nick_name").html(data.myprofile.nymphNickName);
+					if(data.myprofile.nymphAuth)$("#user_rz").show(),$("#user_sb").show();
+				}
+
+			}
+		});
+		init2();
+	}
+	function init2(){
+		app.rank_520(uid,function(status,data){
+			if(status=="success"&&data!=null &&data.ret==0){
+				if(data.rank!=null){
+					var html="";
+					for(var i=0;i<data.rank.length;i++){
+						var info=data.rank[i];
+						if(info==null)continue;
+						if(i==0){
+								$("#sh_best").attr("src",info.guardAvatar);
+								$("#ns_best").attr("src",info.nymphAvatar);
+								if(info.guardAuth)$("#sh_best_rz").css("visibility","visible");
+								if(info.nymphAuth)$("#ns_best_rz").css("visibility","visible");
+								$("#sh_best_num").html(info.guardValue);
+						}
+						html+='<li onclick="detail('+info.nymphId+')">';
+						html+='<div>';
+						if(i<3){
+							html+='<img src="img/'+(i+1)+'.png">';
+						}else{
+							html+='<span style="color: #ff5978;width: 1em;display: inline-block">'+(i+1)+'</span>';
+						}
+
+						html+='<img style="margin-left:0.3em;" class="avatar" src="'+info.nymphAvatar+'">';
+						html+='<div style="padding-left: 0.3em;">'
+						html+='<div><span class="zt6 nick_name">'+info.nymphNickName+'</span>';
+						if(info.nymphAuth)html+='<img class="rz" src="img/rz.png" style="margin-left: 0.2em">';
+						html+='</div>';
+						html+='<div><span class="zt7">女神值</span><span class="zt7">'+info.nymphValue+'</span></div>';
+						html+='</div>';
+						html+='</div>';
+						html+='<div>';
+						html+='<img class="avatar" src="'+info.guardAvatar+'">';
+						html+='<div style="padding-left: 0.3em;">';
+						html+='<div><span class="zt6 nick_name">'+info.guardNickName+'</span>';
+						if(info.guardAuth)html+='<img class="rz" src="img/rz.png" style="margin-left: 0.2em">';
+						html+='</div>';
+						html+='<div><span class="zt7">守护值</span><span class="zt7">'+info.guardValue+'</span></div>';
+						html+='</div>'
+						html+='</div>'
+						html+='<img style="width: 0.5em;vertical-align: middle" src="img/jt.png">';
+						html+='</li>';
+					}
+					$("#phb").html(html);
+				}
+			}
+		})
+	}
+	function detail(user_id){
+		if(user_id!=null)uid=user_id;
+		window.location.href="detail.html?uid="+uid;
+	}
+	function href_profile(userid){
+		window.location.href="./?yjJumpClientPage=profile&uid="+userid;
+	}
+</script>
