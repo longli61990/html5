@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>吹牛</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--Prevents iPhone, iPad, and touch devices from scrolling or zooming when touched-->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+</head>
+<body>
+<div id="wid" style="position: absolute;top: 0;left: 0;display: none;">0</div>
+<div id="all_pop" class="all_pop">
+    <div class="all_pop_bg bg_block"></div>
+    <div class="all_pop_content ani_pop2">
+        <div class="all_pop_content_1"></div>
+        <div class="close" onclick="javascript:$('#all_pop').hide();">确定</div></div>
+</div>
+<div id="djs_pop" class="gz_pop">
+    <div class="gz_pop_bg bg_block"></div>
+    <div id="go_djs" class="ani_djs djs_go">3</div>
+</div>
+<div id="gz_pop" class="gz_pop">
+    <div class="gz_pop_bg bg_block"></div>
+    <div class="gz_pop_content ani_pop"><div class="close" onclick="javascript:$('#gz_pop').hide();"></div>
+    </div>
+</div>
+    <div class="div_frame">
+        <div class="div_adapt">
+        <div class="div_before">
+            <div class="before_title">
+                <img class="avatar_s" >
+                <div class="avatar_s_bg"></div>
+                <div class="xz"><span>我是谁</span></div>
+                <div class="bcje"></div>
+            </div>
+            <div class="before_seat">
+                <!--<li class="read_0 h_1">
+                    <img class="avatar_j" src="http://resource.youja.cn/resource_type/101/resource_id/432641971">
+                    <img class="ready" src="img/aready.png">
+                    <img class="avatar_j_bg" src="img/avatar_j.png">
+                    <label>好了</label>
+                </li>-->
+            </div>
+            <div class="before_operation">
+                <!--
+                <button onclick="javascript:Util.countdown.start(30,$('.before_title'))">准备</button>
+                <button onclick="javascript:Util.countdown.stop()">退出准备</button>
+                <button onclick="javascript:game.start()">开始</button>
+                <button onclick="aa()">开始</button>-->
+                <div class="ready_bt"></div>
+
+            </div>
+        </div>
+            <div class="div_start">
+                <div class="div_kai">
+                    <div class="bg_block"></div>
+                    <div id="ggk_show" class="ggk_show">
+                        <div id="ggk_result" class="ggk_result"></div>
+                        <div id="ggk_draw"></div>
+                        <div id="ggk_djs" class="ggk_djs djs">30</div>
+                    </div>
+                    <div class="ggk_bt">
+                        <div onclick="javascript:game.resetGgk()"></div>
+                        <div onclick="javascript:game.ggkok()"></div>
+                    </div>
+                </div>
+                <div class="div_jiao">
+                    <div class="bg_block"></div>
+                    <div class="jiao_pop">
+                        <img class="jiao_pop_title" src="img/jiao_pop_title.png">
+                        <div class="jiao_pop_input">
+                            <span id="jiao_result_1" class="jiao_result_1" style=""><label></label></span>
+                            <span class="ge">个</span>
+                            <span id="jiao_result_2" class="jiao_result_1" style=""></span>
+                        </div>
+                        <div class="jiao_pop_select1">
+                            <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                        </div>
+                        <div class="jiao_pop_select2">
+                            <span><img src="img/point_r_1.png"></span><span><img src="img/point_r_2.png"></span><span><img src="img/point_r_3.png"></span><span><img src="img/point_r_4.png"></span><span><img src="img/point_r_5.png"></span><span><img src="img/point_r_6.png"></span>
+                        </div>
+                        <button class="jiao_pop_ok" onclick="game.jiaook()"></button>
+                        <button class="jiao_pop_close"  onclick="game.jiaoclose()"></button>
+                        <div id="jiao_djs" class="djs">30</div>
+                    </div>
+                </div>
+                <div class="start_title">
+                    <div class="curr_bs"><span class="curr_dj_img"></span> X <span class="money">50</span></div>
+                </div>
+                <div class="start_user_info"></div>
+                <div class="div_guan">
+                    <div class="guan_result"><img src="img/guan_num_0.png"></div>
+                    <img class="grid_0" src="img/guan_grid_footer.png"><img class="grid_1" src="img/guan_grid.png">
+                    <img class="grid_2" src="img/guan_grid.png"><img class="grid_3" src="img/guan_grid.png">
+                    <img class="grid_4" src="img/guan_grid.png"><img class="grid_5" src="img/guan_grid.png">
+                </div>
+            </div>
+            <div class="div_result">
+                <div class="result_title"><img class="result_zha" src="img/over_title.png"></div>
+                <div class="result_win">
+                    <img class="img_winower" src="img/win_onwer.png">
+                    <img class="img_winavatar_bg" src="img/avatar_j.png">
+                    <img class="img_winavatar" src="">
+                    <span class="win_nickname">wwwwwww</span>
+                    <div class="win_ub_div">+ <span class="win_ub">0</span></div>
+                </div>
+                <div class="result_fail">
+                    <img class="img_failower" src="img/fail_onwer.png">
+                    <img class="img_failavatar_bg" src="img/avatar_j.png">
+                    <img class="img_failavatar" src="">
+                    <span class="fail_nickname">wwwwwww</span>
+                    <div class="fail_ub_div">- <span class="fail_ub">0</span></div>
+                </div>
+                <div class="restart"></div>
+            </div>
+
+            <div class="div_ds">
+                <div class="bg_block"></div>
+                <div class="ds_pop">
+                    <li onclick="game.ds(0.5)"><img src="img/2/ds_bt_yb_3.png"><img src="img/2/ds_bt_zs_3.png"></li>
+                    <li onclick="game.ds(1)"><img src="img/2/ds_bt_yb_1.png"><img src="img/2/ds_bt_zs_1.png"></li>
+                    <li onclick="game.ds(2)"><img src="img/2/ds_bt_yb_2.png"><img src="img/2/ds_bt_zs_2.png"></li>
+                    <li onclick="game.ds(0)"><img src="img/2/ds_bt_no.png"></li>
+                </div>
+            </div>
+        </div>
+
+        <div class="msg">
+            <div class="msg_content">
+            </div>
+            <div class="footer">
+                <a class="video_msg gz_ts" style="display: inline-block" onclick="jaavascript:$('#gz_pop').show();"></a>
+                <a class="text_msg" style="display: none"></a>
+                <div>
+                    <input id="text" value="" class="text_bs"/>
+                </div>
+                <a id="send" class="send">发送</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/native-protol.js" charset="gbk"></script>
+<script src="js/howler.js" charset="gbk"></script>
+<script src="js/game2.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/ggk.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript" charset="gbk"></script>
+<script src="js/index.js" type="text/javascript" charset="gbk"></script>
+<script>
+    resizeJoin();
+    var ready_click=0;
+    function inits(){}
+    function init() {
+        init_msg();
+    }
+    function init_msg(){
+        $('#text').bind('input propertychange', function() {
+            if($(this).val()!=null&&$(this).val()!=""){
+                $("#send").css("display","inline-block");
+            }
+        });
+        $("#send").click(function(){
+            document.getElementById("text").focus();
+            if($("#text").val()!=null&& $.trim($("#text").val())!=""){
+                var text = $("#text").val();
+                game.send_msg(game.game_user.player_name,text);
+                $("#text").val(null);
+            }
+        });
+    }
+    game.game_resource.media.bg.play();
+    document.addEventListener('touchstart', function(e){
+        var target = e.srcElement ? e.srcElement : e.target;
+        game.game_resource.media.bg.pause();
+        game.game_resource.media.bg.play();
+        game.game_resource.media.sound.play("mate");
+        if(target.className!="text_bs")document.getElementById("text").blur();
+    }, false);
+</script>

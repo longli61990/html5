@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button onclick="play()" style="width: 300px;height:100px;"></button>
+</body>
+</html>
+<script src="js/howler.js" charset="gbk"></script>
+<script src="js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var sound = new Howl({
+        urls: ["media/sound.mp3"],
+        volume: .9,
+        loop: false,
+        sprite: {
+            1: [0, 500],
+            2: [500, 500],
+            3: [1000, 500],
+            4: [1500, 500],
+            5: [2100, 500],
+            6: [2600, 500],
+            7: [3100, 500],
+            8: [3600, 500],
+            9: [4100, 500],
+            10: [4600, 500],
+            11: [5100, 700],
+            12: [5800, 700],
+            13: [6500, 600],
+            14: [7200, 600],
+            15: [7900, 700],
+            16: [8600, 700],
+            17: [9300, 700],
+            18: [10000, 700],
+            19: [10700, 600],
+            20: [11400, 700],
+            21: [12100, 900],
+            22: [13000, 900],
+            23: [13900, 900],
+            24: [17500, 900],
+            25: [14800, 900],
+            26: [15700, 900],
+            27: [16600, 900],
+            28: [18400, 900],
+            29: [19300, 800],
+            30: [20100, 700],
+            ge: [20900, 400],
+            kai: [21400, 500],
+            mate: [21900, 100]
+        }
+    });
+    var bg = document.createElement("AUDIO");
+    bg.src="media/bg.mp3";
+    var bgddd = new Howl({
+        urls: ["media/bg.mp3"],
+        volume: .9,
+        loop: true
+    });
+    var v1 = new Howl({
+        urls: ["media/1.mp3"],
+        volume: .9,
+        loop: false
+    });
+    var ge = new Howl({
+        urls: ["media/ge.mp3"],
+        volume: .9,
+        loop: false
+    });
+    /**var ge = document.createElement("AUDIO");
+    ge.src="media/ge.mp3";
+    var v1 = document.createElement("AUDIO");
+    v1.src="media/1.mp3";
+    v1.loop=false;**/
+    var v2 = new Howl({
+        urls: ["media/2.mp3"],
+        volume: .9,
+        loop: false
+    });
+    //bg.play();
+    //play();
+    setTimeout(function(){
+
+    },2000);
+    function play(){
+        sound.play("mate");
+        //sound.pause();
+        /**v1.play(function(){
+            setTimeout(function(){
+                ge.play(function(){
+                    setTimeout(function(){
+                        v2.play();
+                    },500)
+                });
+            },500);
+        });**/
+        /**v1.on("end",function(){
+            ge.play();
+        });
+         v2.on("end",function(){
+            alert("dd");
+        });
+         ge.on("end",function(){
+            v2.play();
+        });**/
+    }
+
+    document.addEventListener('touchstart', function(e){
+        var target = e.srcElement ? e.srcElement : e.target;
+            //bg.play();
+    }, false);
+    $.ajax({
+        url: 'js/index.js',
+        async: false,
+        type: 'get',
+        dataType: 'html',
+        success: function() {
+            //bg.play(); // audio will play in iOS before 4.2.1
+        }
+    });
+</script>
+<script type="text/javascript">
+    function fakeClick(fn) {
+        var $a = $('<a href="#" id="fakeClick"></a>');
+        $a.bind("click", function(e) {
+            e.preventDefault();
+            fn();
+        });
+
+        $("body").append($a);
+
+        var evt,
+                el = $("#fakeClick").get(0);
+
+        if (document.createEvent) {
+            evt = document.createEvent("MouseEvents");
+            if (evt.initMouseEvent) {
+                evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                el.dispatchEvent(evt);
+            }
+        }
+
+        $(el).remove();
+    }
+
+    $(function() {
+
+        fakeClick(function() {
+            //bg.play();
+        });
+    });
+
+</script>

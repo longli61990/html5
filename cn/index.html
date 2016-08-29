@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>吹牛</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--Prevents iPhone, iPad, and touch devices from scrolling or zooming when touched-->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+</head>
+<body>
+<div id="all_pop" class="all_pop">
+    <div class="all_pop_bg bg_block"></div>
+    <div class="all_pop_content ani_pop">
+        <div class="all_pop_content_1"></div>
+        <div class="close" onclick="javascript:$('#all_pop').hide();">确定</div></div>
+</div>
+
+    <div class="bl_div">
+        <div class="logo_title">
+            <div class="js">
+                <div class="js_sq">
+                    <!--<div onclick="javascript:$(this).parent().removeClass('ani_xl_click').addClass('ani_sl_click'),setTimeout(function(){$('#sm_sq').show(),$('.sq_234_div').show()},800)" style="position: absolute;height: 1em;width: 100%;margin-top:28%;"></div>-->
+                    <img id="sm_zk" class="sq_1" src="img/2/sm_zk.png" onclick="javascript:$(this).parent().removeClass('ani_xl_click').addClass('ani_sl_click'),setTimeout(function(){$('#sm_sq').show(),$('.sq_234_div').show()},800)">
+                    <img id="sm_sq" class="sq_1" src="img/2/sm_sq.png" onclick="javascript:$(this).parent().removeClass('ani_sl_click').addClass('ani_xl_click'),$(this).hide(),$('.sq_234_div').hide()">
+                    <div class="sq_234_div ani_xl" onclick="javascript:$(this).parent().removeClass('ani_sl_click').addClass('ani_xl_click'),$('#sm_sq').hide(),$('.sq_234_div').hide()">
+                        <img class="sq_2 " src="img/2/biao.png">
+                        <img class="sq_3 " src="img/2/biao.png">
+                        <img class="sq_4 " src="img/2/biao.png">
+                    </div>
+                </div>
+            </div>
+            <img class="logo" src="img/2/logo.png" onclick="javascript:if($('.js_sq').attr('class').indexOf('ani_xl_click')>-1){$('.js_sq').removeClass('ani_xl_click').addClass('ani_sl_click'),setTimeout(function(){$('#sm_sq').show(),$('.sq_234_div').show()},800)} else {$('.js_sq').removeClass('ani_sl_click').addClass('ani_xl_click'),$('#sm_sq').hide(),$('.sq_234_div').hide()}">
+        </div>
+
+    </div>
+<div style="position: absolute;bottom: 0;width: 100%;text-align: center">
+    <button onclick="href_join2()" style="width: 10.93em;height:2.81em;border: none;background: url('img/single.png') no-repeat;background-size: 100%; "></button>
+</div>
+</body>
+</html>
+<script src="js/jQuery.min.js" type="text/javascript" charset="gbk"></script>
+<script src="http://app.youja.cn/public/uplus/js/native-protol.js" charset="gbk"></script>
+<script src="js/howler.js" charset="gbk"></script>
+<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="gbk"></script>
+<script src="js/index.js" type="text/javascript" charset="gbk"></script>
+<script>
+    resizeIndex();
+    function init(){
+        resizeIndex();
+        app.magnification_list(function(status,data){
+            if(status=="success" && data.data!=null){
+                var html="";
+                for(var i=0;i<data.data.length;i++){
+                    html+="<div onclick='lauchck(this);' data='"+data.data[i].magnification+"'><label></label></div>";
+                }
+                $(".bl_div").append(html);
+            }
+        });
+    }
+    function lauchck(dom){
+        if(sponsor!=null && sponsor==uid){
+            app.launch($(dom).attr("data"),function(status,data){
+                if(status=="success" && data.ret==0){
+                    launch_id = data.launch_id;
+                    href_join();
+                }
+                if (status=="success"&&data.ret == 1 && data.errcode==1001)popupNew(data.errinfo);
+            });
+
+        }else{
+            popupAutomatic("秀主才可以发起");
+        }
+    }
+</script>
